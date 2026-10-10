@@ -1,7 +1,5 @@
 # My PDF Portfolio
 
-quero criar um site/portfólio meu inteiramente baseado neste pdf, deixe o visual até os textos.
-
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
