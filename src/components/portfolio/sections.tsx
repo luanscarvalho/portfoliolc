@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ArrowUpRight, ArrowDown, Download, Users, Presentation, ClipboardList, Mail, Phone, Linkedin, X, ZoomIn } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Download, Users, Presentation, ClipboardList, Mail, Phone, Linkedin, ZoomIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { assets } from './assets';
-import { biography, purpose, statement, journey, themes, feedbacks, awards } from './content';
+import { biography, purpose, statement, journey, themes, feedbacks, awards, recognitionTexts } from './content';
 
 export function Hero() {
   return <section className="portfolio-hero">
     <img className="hero-photo" src={assets.hero} alt="Luan Carvalho apresentando uma palestra para o público" fetchPriority="high" />
     <div className="hero-shade" />
-    <div className="hero-heading"><span className="eyebrow">PORTFÓLIO</span><h1>Luan Carvalho<span className="name-period">.</span></h1><p>Ciência. Inovação. Impacto.</p></div>
+    <div className="hero-heading"><h1>Luan Carvalho<span className="name-period">.</span></h1><p>Portfólio</p></div>
     <div className="hero-message"><div className="speech-bubble">Pensando inovação,<br />ciência, impacto e<br />empreendedorismo</div><Button asChild variant="portfolio"><Link to="/contato">Vamos conversar? <ArrowUpRight /></Link></Button></div>
     <div className="hero-bottom"><span>CIÊNCIA + EMPREENDEDORISMO</span><Button asChild variant="portfolioGhost"><Link to="/sobre">quem é Luan? <ArrowDown /></Link></Button></div>
   </section>;
@@ -53,7 +53,7 @@ export function AwardsSection({ preview = false }: { preview?: boolean }) {
   const shown = preview ? awards.slice(5) : awards;
   return <section className="awards-section section-light"><div className="section-heading"><div><span className="eyebrow">DESAFIOS QUE VIRARAM CONQUISTAS</span><h2>alguns prêmios e<br />reconhecimento...</h2></div><blockquote className="speech-bubble">Meus “rolês” preferidos são: participar de eventos de inovação, hackathons e enfrentar novos desafios...</blockquote></div><div className="awards-grid">{shown.map(award => <article className="award" key={award.title}><Button variant="image" className="award-image" onClick={() => setSelected(award)} aria-label={`Ampliar imagem: ${award.title}`}><img src={assets[award.image]} alt={award.title} loading="lazy" /><span className="image-zoom"><ZoomIn /></span><span className="award-year">{award.year}</span></Button><h3>{award.title}</h3><p>{award.organization} ({award.year})</p></article>)}</div>{preview && <Button asChild variant="portfolioLight"><Link to="/reconhecimentos">Todos os reconhecimentos <ArrowUpRight /></Link></Button>}
     {!preview && <div className="demoday"><img src={assets.demoday} alt="Apresentação no Demoday em Belém" loading="lazy" /><div><h3>Apresentação no Demoday</h3><p>Eneb na UFPA - Belém/PA</p><h3>Recebendo o Prêmio</h3><p>Final do Eneb no Hangar - Belém/PA</p></div></div>}
-    <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null); }}><DialogContent className="award-dialog"><DialogTitle>{selected?.title}</DialogTitle>{selected && <img src={assets[selected.image]} alt={selected.title} />}<p>{selected?.organization} ({selected?.year})</p></DialogContent></Dialog>
+    <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null); }}><DialogContent className="award-dialog"><DialogTitle>{selected?.title}</DialogTitle>{selected && <img src={assets[selected.image]} alt={selected.title} />}<p>{selected?.organization} ({selected?.year})</p>{selected && recognitionTexts[selected.image]?.map(text => <p key={text} className="recognition-text">{text}</p>)}</DialogContent></Dialog>
   </section>;
 }
 

@@ -32,6 +32,21 @@ export const awards = [
   { title: '1º lugar Desafio Logistica Reversa', organization: 'Circuito Alagoano de Inovação', year: '2026', image: 'logistica' },
 ] as const;
 
+export const recognitionTexts: Record<string, string[]> = {
+  ideathon: [
+    'Alunos da Ufal vencem competição com proposta para revitalização do Centro',
+    'Manuela Soares - jornalista • 25/04/2023 11h11 - Atualizado em 02/05/2024 15h08',
+    'Quando os alunos da Universidade Federal de Alagoas unem forças, é certeza de sucesso! Uma equipe formada 100% por alunos da Ufal venceu o Ideathon 2023, um evento realizado pelo Sebrae em parceria com a MVPlay e empreendedores de diferentes estados.',
+    'A competição em Alagoas reuniu estudantes de várias instituições de ensino superior durante três dias deste mês de abril e propôs um desafio: criar soluções inovadoras para o problema de esvaziamento urbano do Centro de Maceió.',
+    'Apenas dez grupos chegaram à etapa final e a equipe Bumba – a cidade é sua conquistou o primeiro lugar. Com reforços multidisciplinares, a Bumba é formada pelas alunas de Arquitetura e Urbanismo Eduarda Lima e Esther Fireman, os estudantes de Ciência da Computação Irene Fireman e Jackson Barbosa, e o graduando de Ciências Biológicas Luan Carvalho.',
+    'A proposta vencedora que une gamificação, memória e valorização do patrimônio',
+  ],
+  'jovens-talentos': [
+    'Confira o depoimento do Luan Carvalho (UFAL - Maceió/AL) sobre o programa:',
+    '“Ter participado do programa foi muito importante para o meu aprendizado sobre liderança, planejamento pessoal e profissional. Com isso, durante as minhas atividades enquanto diretor de projetos do time, pude colocar em prática para as minhas membros alguns métodos que foram passados e nesse processo entender como funcionava a minha interação com a equipe - sendo líder pela primeira vez. Além disso, passei a ver a minha carreira de uma forma mais planejada, traçando atividades, metas e objetivos para alcançar melhor os resultados que eu desejo. Por fim, a aplicação das ferramentas e os direcionamentos proporcionados foram essenciais para uma visão mais ampla e estratégica sobre gestão pessoal, profissional e de uma equipe. Deixo aqui meu agradecimento, acho muito importante a Enactus Brasil se preocupar com o desenvolvimento dos integrantes da rede, pois é um ganho para todos!”',
+  ],
+};
+
 export function portfolioHead(title: string, description: string) {
   return { meta: [
     { title }, { name: 'description', content: description },
